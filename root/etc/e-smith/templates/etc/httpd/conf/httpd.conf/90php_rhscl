@@ -1,0 +1,30 @@
+{
+	use esmith::AccountsDB;
+	my $accounts = esmith::AccountsDB->open_ro;
+	
+	my @ibays = $accounts->ibays;
+	foreach my $ibay (@ibays) 
+        {
+		my $php54 = $ibay->prop("php54") || "";
+		my $key = $ibay->key;
+
+		if ($php54 eq 'enabled') 
+                {
+
+			# write the configuration
+
+			$OUT .= "\n";
+			$OUT .= "\n";
+			$OUT .= "<Directory /home/e-smith/files/ibays/$key/html>\n";
+			$OUT .= "    # use PHP of RHSCL  instead of the default PHP\n";
+			$OUT .= "    AddHandler phpscl-cgi .php\n";
+			$OUT .= "    Action phpscl-cgi /phpscl-cgi/php54_RHSCL\n";
+			$OUT .= "</Directory>\n";
+			$OUT .= "\n";
+			$OUT .= "\n";
+
+		}
+		
+	}
+
+}

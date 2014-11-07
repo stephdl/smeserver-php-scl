@@ -1,0 +1,10 @@
+# permit the use of PHP_RHSCL
+
+ScriptAlias /phpscl-cgi /usr/bin/phpscl
+
+<Directory /usr/bin/phpscl>
+       order deny,allow
+       deny from all
+       allow from all
+       Options ExecCGI
+</Directory>

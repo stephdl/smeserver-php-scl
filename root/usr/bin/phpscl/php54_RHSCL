@@ -1,0 +1,3 @@
+#!/bin/bash
+source /opt/rh/php54/enable
+exec php-cgi
