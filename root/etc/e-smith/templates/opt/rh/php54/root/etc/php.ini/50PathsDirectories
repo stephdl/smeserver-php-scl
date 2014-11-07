@@ -1,9 +1,7 @@
 mysql.allow_persistent                 = On
-include_path                           = ".:/usr/share/pear-addons:/usr/share/pear"
+include_path                           = ".:/opt/rh/php54/root/usr/share/pear:/opt/rh/php54/root/usr/share/php"
 doc_root                               =
 user_dir                               =
-extension_dir                          = { return "/usr/lib64/php/modules" if -d "/usr/lib64/php/modules";
-                                           return "/usr/lib/php/modules" if -d "/usr/lib/php/modules";
-                                           return "/usr/lib64/php4" if -d "/usr/lib64/php4";
-                                           return "/usr/lib/php4"; }
+extension_dir                          = /opt/rh/php54/root/usr/lib64/php/modules
 enable_dl                              = On
+
