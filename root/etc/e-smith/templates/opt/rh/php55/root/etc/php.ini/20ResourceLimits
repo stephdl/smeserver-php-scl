@@ -1,8 +1,8 @@
 max_execution_time                     = {
-    my $et = $php54{MaxExecutionTime} || "30";
+    my $et = $php55{MaxExecutionTime} || "30";
     $OUT .= "$et";
 }
 memory_limit                           = {
-    my $ml = $php54{MemoryLimit} || "32M";
+    my $ml = $php55{MemoryLimit} || "32M";
     $OUT .= "$ml";
 }

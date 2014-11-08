@@ -10,4 +10,5 @@ for my $event (qw(
 
 {
     templates2events("/opt/rh/php54/root/etc/php.ini", $event);
+    templates2events("/opt/rh/php55/root/etc/php.ini", $event);
 }

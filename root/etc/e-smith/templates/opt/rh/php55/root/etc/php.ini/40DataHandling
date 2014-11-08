@@ -3,7 +3,7 @@ variables_order                        = "EGPCS"
 register_globals                       = Off
 register_argc_argv                     = On
 post_max_size                          = {
-    my $ms = $php54{PostMaxSize} || "20M";
+    my $ms = $php55{PostMaxSize} || "20M";
     $OUT .= "$ms";
 }
 gpc_order                              = "GPC"

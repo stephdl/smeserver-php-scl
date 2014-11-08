@@ -1,0 +1,7 @@
+mysql.allow_persistent                 = On
+include_path                           = ".:/opt/rh/php55/root/usr/share/pear:/opt/rh/php55/root/usr/share/php"
+doc_root                               =
+user_dir                               =
+extension_dir                          = /opt/rh/php55/root/usr/lib64/php/modules
+enable_dl                              = On
+

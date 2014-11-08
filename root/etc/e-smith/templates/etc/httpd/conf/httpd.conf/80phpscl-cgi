@@ -1,4 +1,4 @@
-# permit the use of PHP_RHSCL
+# permit the use of PHP_RHSCL from the softwarecollections.org
 
 ScriptAlias /phpscl-cgi /usr/bin/phpscl
 

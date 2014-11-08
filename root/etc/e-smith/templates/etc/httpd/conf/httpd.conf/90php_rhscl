@@ -6,9 +6,10 @@
 	foreach my $ibay (@ibays) 
         {
 		my $php54 = $ibay->prop("php54") || "";
+                mu $php55 = $ibay->prop("php55") || "";
 		my $key = $ibay->key;
 
-		if ($php54 eq 'enabled') 
+		if ($php54 eq 'enabled' && $php55 ne 'enabled') 
                 {
 
 			# write the configuration
@@ -16,7 +17,7 @@
 			$OUT .= "\n";
 			$OUT .= "\n";
 			$OUT .= "<Directory /home/e-smith/files/ibays/$key/html>\n";
-			$OUT .= "    # use PHP of RHSCL  instead of the default PHP\n";
+			$OUT .= "    # use PHP54 of RHSCL from softwarecollections.org  instead of the default PHP\n";
 			$OUT .= "    AddHandler phpscl-cgi .php\n";
 			$OUT .= "    Action phpscl-cgi /phpscl-cgi/php54_RHSCL\n";
 			$OUT .= "</Directory>\n";
@@ -25,6 +26,23 @@
 
 		}
 		
+                if ($php55 eq 'enabled')
+                {
+
+                        # write the configuration
+
+                        $OUT .= "\n";
+                        $OUT .= "\n";
+                        $OUT .= "<Directory /home/e-smith/files/ibays/$key/html>\n";
+                        $OUT .= "    # use PHP55 of RHSCL from softwarecollections.org  instead of the default PHP\n";
+                        $OUT .= "    AddHandler phpscl-cgi .php\n";
+                        $OUT .= "    Action phpscl-cgi /phpscl-cgi/php55_RHSCL\n";
+                        $OUT .= "</Directory>\n";
+                        $OUT .= "\n";
+                        $OUT .= "\n";
+
+                }
+
 	}
 
 }

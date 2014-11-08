@@ -1,5 +1,5 @@
 file_uploads                           = On
 upload_max_filesize                    = {
-    my $mf = $php54{UploadMaxFilesize} || "10M";
+    my $mf = $php55{UploadMaxFilesize} || "10M";
     $OUT .= "$mf";
 }
