@@ -13,9 +13,8 @@ BuildRequires: e-smith-devtools
 BuildArchitectures: x86_64
 Requires: e-smith-release >= 9.0
 Requires: scl-utils
-Requires: php54 , php54-php , php54-php-bcmath, php54-php-dba , php54-php-enchant , php54-php-fpm , php54-php-gd , php54-php-imap , php54-php-intl , php54-php-ldap
-Requires: php54-php-mbstring , php54-php-mysqlnd , php54-php-odbc , php54-php-pdo , php54-php-pecl-apc , php54-php-pecl-memcache , php54-php-pecl-zendopcache
-Requires: php54-php-pgsql , php54-php-pspell , php54-php-recode , php54-php-snmp , php54-php-soap , php54-php-tidy, php54-php-xmlrpc 
+Requires: php54 , php54-php-bcmath , php54-php-gd , php54-php-imap , php54-php-ldap
+Requires: php54-php-mbstring , php54-php-pdo , php54-php-tidy , php54-php-mysqlnd
 AutoReqProv: no
 
 %changelog
