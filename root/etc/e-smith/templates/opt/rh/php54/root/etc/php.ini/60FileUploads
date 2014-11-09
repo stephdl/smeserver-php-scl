@@ -7,4 +7,4 @@ upload_max_filesize                    = {
 max_file_upload                        = {
     my $mfu = $php54{MaxFileUpload} || "20";
     $OUT .= "$mfu";
-
+}

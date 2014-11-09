@@ -1,5 +1,5 @@
 {
-    return "allow_url_fopen = $php55{AllowUrlFopen}\n";
+    return "allow_url_fopen = ($php55{AllowUrlFopen} || 'Off')\n";
 }
 ;added by stephdl
 allow_url_include = Off
