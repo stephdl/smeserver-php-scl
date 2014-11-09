@@ -6,7 +6,7 @@
 	foreach my $ibay (@ibays) 
         {
 		my $php54 = $ibay->prop("php54") || "";
-                mu $php55 = $ibay->prop("php55") || "";
+                my $php55 = $ibay->prop("php55") || "";
 		my $key = $ibay->key;
 
 		if ($php54 eq 'enabled' && $php55 ne 'enabled') 
