@@ -6,11 +6,15 @@ post_max_size                          = {
     my $ms = $php54{PostMaxSize} || "20M";
     $OUT .= "$ms";
 }
-gpc_order                              = "GPC"
-magic_quotes_gpc                       = Off
-magic_quotes_runtime                   = Off
-magic_quotes_sybase                    = Off
+;gpc_order                              = "GPC" #deprecated
+;magic_quotes_gpc                       = Off #deprecated
+;magic_quotes_runtime                   = Off #deprecated
+;magic_quotes_sybase                    = Off #deprecated
 auto_prepend_file                      =
 auto_append_file                       =
 default_mimetype                       = "text/html"
 
+; added by stephdl
+variables_order = "EGPCS"
+request_order = "GP"
+auto_globals_jit = On

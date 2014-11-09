@@ -1,3 +1,6 @@
 {
     return "allow_url_fopen = $php54{AllowUrlFopen}\n";
 }
+;added by stephdl
+allow_url_include = Off
+default_socket_timeout = 60

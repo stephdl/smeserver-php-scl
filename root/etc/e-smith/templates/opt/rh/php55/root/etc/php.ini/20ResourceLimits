@@ -3,6 +3,12 @@ max_execution_time                     = {
     $OUT .= "$et";
 }
 memory_limit                           = {
-    my $ml = $php55{MemoryLimit} || "32M";
+    my $ml = $php55{MemoryLimit} || "128M";
     $OUT .= "$ml";
 }
+;added by stephdl see $php55{MaxInputTime}
+max_input_time                     = {
+    my $it = $php55{MaxInputTime} || "60";
+    $OUT .= "$it";
+}
+

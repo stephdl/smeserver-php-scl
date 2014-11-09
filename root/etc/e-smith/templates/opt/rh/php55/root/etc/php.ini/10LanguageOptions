@@ -21,3 +21,12 @@ highlight.keyword                      = #007700
 highlight.bg                           = #FFFFFF
 highlight.default                      = #0000BB
 highlight.html                         = #000000
+
+;added stephdl settings
+output_buffering = 4096
+zlib.output_compression = Off
+unserialize_callback_func =
+serialize_precision = 17
+disable_classes =
+zend.enable_gc = On
+

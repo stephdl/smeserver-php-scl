@@ -1,0 +1,14 @@
+{
+    return "" unless (exists $php{status} and $php{status} eq "enabled");
+
+    $OUT .= "## templates-custom of /etc/httpd/conf/httpd.conf/20LoadModule80PHP by smeserver-php-scl\n";
+    $OUT .= "\n";
+
+    $OUT .= "LoadModule php5_module modules/libphp54-php5.so\n" if (-r "/usr/lib64/httpd/modules/libphp54-php5.so" && (($php54{PhpModule} || '') eq 'enabled'));
+
+    $OUT .= "LoadModule php5_module modules/libphp5.so\n" unless ( -r "/usr/lib64/httpd/modules/libphp54-php5.so" && (($php54{PhpModule} || '') eq 'enabled'));
+
+    $OUT .= "\n";
+    $OUT .= "## templates-custom of /etc/httpd/conf/httpd.conf/20LoadModule80PHP by smeserver-php-scl\n";
+}
+

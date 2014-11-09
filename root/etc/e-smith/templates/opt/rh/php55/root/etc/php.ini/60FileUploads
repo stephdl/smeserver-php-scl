@@ -3,3 +3,8 @@ upload_max_filesize                    = {
     my $mf = $php55{UploadMaxFilesize} || "10M";
     $OUT .= "$mf";
 }
+; added by stephdl see $php55{MaxFileUpload}
+max_file_upload                        = {
+    my $mfu = $php55{MaxFileUpload} || "20";
+    $OUT .= "$mfu";
+

@@ -1,0 +1,9 @@
+;added by stephdl
+[Interbase]
+ibase.allow_persistent = 1
+ibase.max_persistent = -1
+ibase.max_links = -1
+ibase.timestampformat = "%Y-%m-%d %H:%M:%S"
+ibase.dateformat = "%Y-%m-%d"
+ibase.timeformat = "%H:%M:%S"
+

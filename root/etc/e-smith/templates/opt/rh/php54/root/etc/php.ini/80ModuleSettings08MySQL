@@ -1,3 +1,4 @@
+;added by stephdl
 [Pdo_mysql]
 pdo_mysql.cache_size = 2000
 pdo_mysql.default_socket=
@@ -12,9 +13,13 @@ mysql.default_socket                   =
 mysql.default_host                     =
 mysql.default_user                     =
 mysql.default_password                 =
+;added by stephdl
+mysql.connect_timeout = 60
+mysql.trace_mode = Off
 
-
+;added by stephdl
 [mysqlnd]
 mysqlnd.collect_statistics = On
 mysqlnd.collect_memory_statistics = Off
+
 

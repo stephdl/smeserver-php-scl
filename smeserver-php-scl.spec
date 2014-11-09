@@ -2,7 +2,7 @@ Summary: SME server php RH scl
 %define name smeserver-php-scl
 Name: %{name}
 %define version 0.3
-%define release 1
+%define release 2
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
@@ -20,8 +20,9 @@ Requires: php55-php-mbstring , php55-php-pdo , php55-php-tidy , php55-php-mysqln
 AutoReqProv: no
 
 %changelog
-* Fri Nov 7 2014 Stephane de Labrusse <stephdl@de-labrusse.fr> 0.3-1
+* Sun Nov 9 2014 Stephane de Labrusse <stephdl@de-labrusse.fr> 0.3-2
 - Added a db to load the php54-mod in apache
+- New php settings in php.ini
 
 * Fri Nov 7 2014 Stephane de Labrusse <stephdl@de-labrusse.fr> 0.2-1
 - Added php55
