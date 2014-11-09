@@ -1,7 +1,7 @@
 Summary: SME server php RH scl
 %define name smeserver-php-scl
 Name: %{name}
-%define version 0.2
+%define version 0.3
 %define release 1
 Version: %{version}
 Release: %{release}%{?dist}
@@ -13,13 +13,16 @@ BuildRequires: e-smith-devtools
 BuildArchitectures: x86_64
 Requires: e-smith-release >= 9.0
 Requires: scl-utils
-Requires: php54 , php54-php-bcmath , php54-php-gd , php54-php-imap , php54-php-ldap
+Requires: php54 , php54-php-bcmath , php54-php-gd , php54-php-imap , php54-php-ldap , php54-php-enchant
 Requires: php54-php-mbstring , php54-php-pdo , php54-php-tidy , php54-php-mysqlnd
-Requires: php55 , php55-php-bcmath , php55-php-gd , php55-php-imap , php55-php-ldap
+Requires: php55 , php55-php-bcmath , php55-php-gd , php55-php-imap , php55-php-ldap , php55-php-enchant
 Requires: php55-php-mbstring , php55-php-pdo , php55-php-tidy , php55-php-mysqlnd
 AutoReqProv: no
 
 %changelog
+* Fri Nov 7 2014 Stephane de Labrusse <stephdl@de-labrusse.fr> 0.3-1
+- Added a db to load the php54-mod in apache
+
 * Fri Nov 7 2014 Stephane de Labrusse <stephdl@de-labrusse.fr> 0.2-1
 - Added php55
 
