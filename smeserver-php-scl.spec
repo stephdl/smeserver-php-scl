@@ -25,6 +25,7 @@ AutoReqProv: no
 %changelog
 * Sat Feb 07 2015 Stephane de Labrusse <stephdl@de-labrusse.fr> 0.4-1
 - Switch to remi repository {php54,php55,php56}
+- Added a Panel for ibay php version
 
 * Sun Nov 9 2014 Stephane de Labrusse <stephdl@de-labrusse.fr> 0.3-3
 - Added a db to load the php54-mod in apache
