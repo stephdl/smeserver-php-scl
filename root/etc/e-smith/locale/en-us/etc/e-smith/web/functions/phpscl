@@ -1,0 +1,79 @@
+ <!-- vim: ft=xml ts=4 sw=8 noet:
+-->
+<lexicon lang="en-us" params="getExtraParams()">
+    <entry>
+        <base>FORM_TITLE</base>
+        <trans>
+               PHP Software Collections Contrib
+    </trans>
+    </entry>
+<entry>
+<base>phpscl</base>
+<trans>PHP-SCL Versions</trans>
+</entry> 
+    <entry>
+        <base>FIRSTPAGE_DESC</base>
+        <trans>
+         Manage different versions of PHP
+        </trans>
+    </entry>
+    <entry>
+        <base>ADD_TITLE</base>
+        <trans>
+            Manage different versions of PHP
+        </trans>
+    </entry>
+    <entry>
+        <base>NAME_FIELD_DESC</base>
+        <trans>
+<![CDATA[PHP and the WEB access have to be enabled in the Ibay settings. PHP applications must be in /home/e-smith/files/ibays/{$name}/html ]]>
+        </trans>
+    </entry>
+    <entry>
+        <base>NAME_LABEL</base>
+        <trans>
+            Information bay name
+        </trans>
+    </entry>
+    <entry>
+        <base>NO_IBAYS</base>
+        <trans>
+            There are no I-bays currently configured.
+        </trans>
+    </entry>
+    <entry>
+        <base>CANT_FIND_IBAY</base>
+        <trans>
+            Can't find account for {$name} (does it exist?)
+        </trans>
+    </entry>
+    <entry>
+        <base>ERROR_WHILE_MODIFYING_PHP</base>
+        <trans>
+            An error occurred while modifying the PHP version.
+        </trans>
+    </entry>
+    <entry>
+        <base>SUCCESSFULLY_MODIFIED_PHP</base>
+        <trans>
+            Successfully modified PHP version.
+        </trans>
+    </entry>
+    <entry>
+        <base>Information bays</base>
+        <trans>Information bays</trans>
+    </entry>
+    <entry>
+        <base>PHP_VERSION</base>
+        <trans>PHP Scl Version</trans>
+    </entry>
+      <entry>
+        <base>DESC_PHPVERSION</base>
+        <trans>Select the PHP version you want to use for this Ibay, set to disabled if you want the default PHP.</trans>
+    </entry>
+      <entry>
+        <base>PHPVERSION</base>
+        <trans>Php version</trans>
+    </entry> 
+</lexicon>
+

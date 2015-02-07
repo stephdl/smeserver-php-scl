@@ -2,13 +2,22 @@
 
 use esmith::Build::CreateLinks qw(:all);
 
+panel_link("phpscl", "manager");
 for my $event (qw(
     bootstrap-console-save
     console-save
-    post-upgrade
+    php-update
     ))
 
 {
-    templates2events("/opt/rh/php54/root/etc/php.ini", $event);
-    templates2events("/opt/rh/php55/root/etc/php.ini", $event);
+    templates2events("/opt/remi/php54/root/etc/php.ini", $event);
+    templates2events("/opt/remi/php55/root/etc/php.ini", $event);
+    templates2events("/opt/remi/php56/root/etc/php.ini", $event);
+}
+
+for my $event (qw(php-update))
+{
+    safe_symlink("sigusr1", "root/etc/e-smith/events/$event/services2adjust/httpd-e-smith");
+    templates2events("/etc/httpd/conf/httpd.conf", $event);
+    templates2events("/etc/php.ini", $event);
 }
