@@ -96,7 +96,7 @@ SKIP: {
 
 __DATA__
 <form title="FORM_TITLE" header="/etc/e-smith/web/common/head.tmpl" footer="/etc/e-smith/web/common/foot.tmpl">
-    <page name="First" pre-event="print_status_message()">
+    <page name="First" pre-event="print_status_message()" >
          <title>FIRSTPAGE_DESC</title>
         <subroutine src="print_ibay_table()" />
     </page>
@@ -104,17 +104,36 @@ __DATA__
 
         <title>ADD_TITLE</title>
         <subroutine src="print_ibay_name_field()" />
+
       <field
             type="literal"
             id="descnfsclient"
             value="">
             <description>DESC_PHPVERSION</description>
        </field>
-           <field type="select" id="phpversion" value="disabled" options="'disabled' => 'DISABLED','php54' => 'PHP54', 'php55' => 'PHP55', 'php56' => 'PHP56'">
+ 
+<field type="select" id="phpversion" value="disabled" options="'disabled' => 'DISABLED','php54' => 'PHP54', 'php55' => 'PHP55', 'php56' => 'PHP56'">
             <label>PHPVERSION</label>
         </field> 
 
           <subroutine src="print_save_or_add_button()" />
+    </page>
+    <page
+        name="HANDLEPHPMOD"
+        pre-event="print_status_message(),retrieve_cgi_phpmod()"
+        post-event="handle_phpmod()">
+       <field
+            type="literal"
+            id="descphpmodversion"
+            value="">
+            <description>DESC_PHPMODVERSION</description>
+       </field>
+        <subroutine src="retrieve_cgi_phpmod" />
+           <field type="select" id="phpmodversion" value="default" options="'default' => 'DEFAULT','php54' => 'PHP54', 'php55' => 'PHP55', 'php56' => 'PHP56'">
+            <label>PHPMODVERSION</label>
+        </field> 
+          <subroutine src="print_save_or_add_button()" />
+
     </page>
  
 </form>

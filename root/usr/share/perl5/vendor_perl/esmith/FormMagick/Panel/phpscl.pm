@@ -1,9 +1,5 @@
 #!/usr/bin/perl -w 
 
-#
-# $Id: ibays.pm,v 1.8 2005/09/06 05:49:52 apc Exp $
-#
-
 package    esmith::FormMagick::Panel::phpscl;
 
 use strict;
@@ -17,8 +13,6 @@ use esmith::util;
 use File::Basename;
 use Exporter;
 use Carp;
-use esmith::util::network qw(isValidIP);
-use Net::IPv4Addr qw(ipv4_in_network ipv4_parse);
 
 
 our @ISA = qw(esmith::FormMagick Exporter);
@@ -31,6 +25,8 @@ our @EXPORT = qw(
     print_save_or_add_button
     wherenext
     getExtraParams
+    handle_phpmod
+    retrieve_cgi_phpmod
 );
 
 our $VERSION = sprintf '%d.%03d', q$Revision: 1.8 $ =~ /: (\d+).(\d+)/;
@@ -162,6 +158,22 @@ sub print_ibay_table {
 
     print $q->end_table,"\n";
 
+        #We display the button of phpmod modification
+        print $q->br;
+        print qq(<td class="sme-noborders-content">) . $self->localise('PHPMODDESCRIPTIONMAINPAGE') . qq(</td>\n);
+        print $q->br;
+        print $q->br;
+        print '    <td>';
+        print '      <form>';
+        print '        <input type="hidden" name="page" value="0" />';
+        print '        <input type="hidden" name="page_stack" value="" />';
+        print '        <input type="hidden" name="action" value="SA" />';
+        print '        <input type="hidden" name="wherenext" value="HANDLEPHPMOD" />';
+        print '        <input type="submit" name="submit" value="' . $self->localise('PHPMODVERSION') . '" />';
+        print '      </form>';
+        print '    </td>';
+
+
     return "";
 }
 
@@ -211,15 +223,7 @@ sub print_ibay_name_field {
              $q->param(-name=>'phpversion',-value=>
                 ($rec->prop('PhpVersion')));
         }
-    } else {
-        print qq(
-            <td><input type="text" name="name" value="$in">
-            <input type="hidden" name="action" value="create">
-            </td>
-        );
     }
-
-    print qq(</tr>\n);
     return undef;
 
 }
@@ -284,7 +288,7 @@ sub print_save_or_add_button {
     if ($action eq "modify") {
         $self->print_button("SAVE");
     } else {
-        $self->print_button("ADD");
+        $self->print_button("SAVE");
     }
 
 }
@@ -343,5 +347,68 @@ sub getExtraParams
         }
     }
     return (name => $name, description => $desc);
+}
+
+sub handle_phpmod {
+    my ($self) = @_;
+    my $version = $self->cgi->param('phpmodversion');
+
+    if ($version eq 'default') {
+        $configdb->set_prop('php54','PhpModule','disabled'); 
+        $configdb->set_prop('php55','PhpModule','disabled');
+        $configdb->set_prop('php56','PhpModule','disabled');
+    }
+    elsif ($version eq 'php54') {
+        $configdb->set_prop('php54','PhpModule','enabled');
+        $configdb->set_prop('php55','PhpModule','disabled');
+        $configdb->set_prop('php56','PhpModule','disabled');
+    }
+
+    elsif ($version eq 'php55') {
+        $configdb->set_prop('php54','PhpModule','disabled');
+        $configdb->set_prop('php55','PhpModule','enabled');
+        $configdb->set_prop('php56','PhpModule','disabled');
+    }
+
+    elsif ($version eq 'php56') {
+        $configdb->set_prop('php54','PhpModule','disabled');
+        $configdb->set_prop('php55','PhpModule','disabled');
+        $configdb->set_prop('php56','PhpModule','enabled');
+    }
+            if (system ("/sbin/e-smith/signal-event", "php-update" )== 0)
+            {
+                $self->success("SUCCESSFULLY_MODIFIED_PHP");
+            } else {
+                $self->error("ERROR_WHILE_MODIFYING_PHP");
+            }
+
+}
+
+
+sub retrieve_cgi_phpmod {
+    my $self = shift;
+    my $q = $self->{cgi};
+        #retrieve the good php mod version for cgi object
+        my $php54 = $configdb->get_prop('php54','PhpModule')||'';
+        my $php55 = $configdb->get_prop('php55','PhpModule')||'';
+        my $php56 = $configdb->get_prop('php56','PhpModule')||'';
+        
+        if (($php54 && $php55 && $php56) eq 'disabled') {
+                 $q->param(-name=>'phpmodversion',-value=>'default');
+        }
+
+        if ($php54 eq 'enabled') {
+                 $q->param(-name=>'phpmodversion',-value=>'php54');
+        }
+
+        if ($php55 eq 'enabled') {
+                 $q->param(-name=>'phpmodversion',-value=>'php55');
+        }
+
+        if ($php56 eq 'enabled') {
+                 $q->param(-name=>'phpmodversion',-value=>'php56');
+        }
+
+        return undef;
 }
 1;

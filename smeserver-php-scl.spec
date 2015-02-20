@@ -2,7 +2,7 @@ Summary: SME server php REMI scl
 %define name smeserver-php-scl
 Name: %{name}
 %define version 0.4
-%define release 1
+%define release 2
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
@@ -23,6 +23,9 @@ Requires: php56-php-mbstring , php56-php-pdo , php56-php-tidy , php56-php-mysqln
 AutoReqProv: no
 
 %changelog
+* Fri Feb 20 2015 Stephane de Labrusse <stephdl@de-labrusse.fr> 0.4-2
+- Added a Panel to select the php version in PHP-mod
+
 * Sat Feb 07 2015 Stephane de Labrusse <stephdl@de-labrusse.fr> 0.4-1
 - Switch to remi repository {php54,php55,php56}
 - Added a Panel for ibay php version

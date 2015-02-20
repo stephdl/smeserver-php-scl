@@ -75,5 +75,16 @@
         <base>PHPVERSION</base>
         <trans>Php version</trans>
     </entry> 
+      <entry>
+        <base>PHPMODVERSION</base>
+        <trans>PHP-mod version</trans>
+    </entry>
+      <entry>
+        <base>PHPMODDESCRIPTIONMAINPAGE</base>
+        <trans>Choose another PHP-mod version for the http server, instead of an Ibay.</trans>
+    </entry>
+      <entry>
+        <base>DESC_PHPMODVERSION</base>
+        <trans>Select the PHP version you want to use with PHP-mod. You will have to install all missed PHP rpm from remi repository.</trans>
+    </entry>
 </lexicon>
-
